@@ -1,23 +1,23 @@
-drop table population cascade constraints;
-drop table climate cascade constraints;
-drop table forest_conversion cascade constraints;
+drop table Population cascade constraints;
+drop table Climate cascade constraints;
+drop table Forest_conversion cascade constraints;
 drop table CO2_Emissions cascade constraints;
+purge recyclebin;
 
-
-create table population (
+create table Population (
     country varchar2(255) not null,
     year integer,
     population number(20)
 );
 
-create table climate (
+create table Climate (
     country varchar2(255),
     year integer,
     AverageTemperature number(10),
     primary key (country, year)
 );
 
-create table forest_conversion (
+create table Forest_Conversion (
     country varchar2(255),
     year integer,
     net_forest_conversion decimal(12, 2),
@@ -3462,3 +3462,4 @@ insert into Climate (Country, Year, AverageTemperature) values ('Zimbabwe', 2010
 
 insert into Climate (Country, Year, AverageTemperature) values ('Grand Total', 2000, 19.35);
 insert into Climate (Country, Year, AverageTemperature) values ('Grand Total', 2010, 19.63);
+commit;
